@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'microservices/1.Hazard/**'          
+      - 'microservices/2.Hazard/**'          
       - '.github/workflows/Hazard.yml'       
   workflow_dispatch:
 
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: microservices/1.Hazard   
+        working-directory: microservices/2.Hazard   
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -48,8 +48,8 @@ jobs:
       - name: Build & push
         uses: docker/build-push-action@v6
         with:
-          context: microservices/1.Hazard
-          file: microservices/1.Hazard/Dockerfile
+          context: microservices/2.Hazard
+          file: microservices/2.Hazard/Dockerfile
           push: true
           tags: |
             ${{ steps.meta.outputs.REPO }}:${{ steps.meta.outputs.TAG }}
