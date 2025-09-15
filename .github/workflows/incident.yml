@@ -1,4 +1,4 @@
-name: test-and-deploy
+name: Incident_test_and_deploy
 
 on:
   push:
@@ -42,7 +42,7 @@ jobs:
       - name: Set image meta
         id: meta
         run: |
-          echo "REPO=docker.io/avneetsag/Hazard" >> $GITHUB_OUTPUT   
+          echo "REPO=docker.io/avneetsag/fastapi" >> $GITHUB_OUTPUT   
           echo "TAG=${{ github.sha }}" >> $GITHUB_OUTPUT             
 
       - name: Build & push
